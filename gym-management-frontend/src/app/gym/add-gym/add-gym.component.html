@@ -1,0 +1,29 @@
+<div class="add-gym-container">
+  <h2>Add New Gym</h2>
+  <form (ngSubmit)="addGym()">
+    <div class="form-group">
+      <label>Gym Name</label>
+      <input type="text" [(ngModel)]="gym.gymName" name="gymName" required />
+    </div>
+
+    <div class="form-group">
+      <label>Location</label>
+      <input type="text" [(ngModel)]="gym.location" name="location" required />
+    </div>
+
+    <div class="form-group">
+      <label>Contact</label>
+      <input type="text" [(ngModel)]="gym.contact" name="contact" required />
+    </div>
+
+    <div class="form-group">
+      <label>Facilities</label>
+      <textarea [(ngModel)]="gym.facilities" name="facilities" rows="3"></textarea>
+    </div>
+
+    <div class="button-group">
+      <button type="submit">Add Gym</button>
+      <button type="button" class="cancel-btn" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

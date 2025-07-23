@@ -1,0 +1,24 @@
+<table class="member-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Plan</th>
+      <th>Trainer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of members; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ member.memberName }}</td>
+      <td>{{ member.age }}</td>
+      <td>{{ member.phoneNumber }}</td>
+      <td>{{ member.email }}</td>
+      <td>{{ member.planName }}</td>
+      <td>{{ member.trainerName || 'None' }}</td>
+    </tr>
+  </tbody>
+</table>

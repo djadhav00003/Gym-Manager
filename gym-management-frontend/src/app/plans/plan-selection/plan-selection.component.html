@@ -1,0 +1,39 @@
+<div class="plan-selection-container">
+  <h2>Available Plans For This Gym</h2>
+  <div *ngIf="plans && plans.length > 0; else noPlans">
+    <table class="plan-table">
+      <thead>
+        <tr>
+          <th>Plan Name</th>
+          <th>Duration (Days)</th>
+          <th>Price (₹)</th>
+          <th>Personal Trainer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plan of plans;"  [class.clickable-row]="!isMemberOfGym"
+        [class.disabled-row]="isMemberOfGym"
+        (click)="!isMemberOfGym && goToPayment(plan)">
+          <td>{{ plan.planName }}</td>
+          <td>{{ plan.durationInDays }}</td>
+          <td>{{ plan.price }}</td>
+          <td>
+            <span [ngClass]="{ 'available': plan.isPersonalTrainerAvailable, 'not-available': !plan.isPersonalTrainerAvailable }">
+              {{ plan.isPersonalTrainerAvailable ? '✅ Yes' : '❌ No' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isMemberOfGym" class="member-warning">
+      ✅ You are already a member of this gym.
+    </div>
+  </div>
+  <ng-template #noPlans>
+    <p>No plans available for this gym.</p>
+  </ng-template>
+</div>
+
+
+
+

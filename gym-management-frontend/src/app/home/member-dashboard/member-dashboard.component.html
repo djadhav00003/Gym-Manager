@@ -1,0 +1,24 @@
+<div class="dashboard-header">
+  <h2>Member Dashboard</h2>
+  <div class="profile-icon" (click)="toggleProfile()">
+    <img src="assets/profile-icon.webp" alt="Profile" />
+  </div>
+</div>
+
+<!-- Dashboard Content -->
+<div class="dashboard-content">
+  <div class="gym-section">
+    <div class="gym-header" *ngIf="isMember">
+      <h3>Gym Membership In</h3>
+      <button class="Logout-gym-btn" (click)="logOut()">Log Out</button>
+    </div>
+
+    <!-- Gym List Table -->
+    <app-gym-list [gyms]="gyms"  [userId]="userId" [isAdmin]="isAdmin" [isMember]="isMember" [email]="email" [gymsWithMembership]="gymsWithMembership"></app-gym-list>
+  </div>
+</div>
+
+<!-- Sliding Profile Panel -->
+<div class="profile-panel" [class.open]="profileOpen" *ngIf="memberUser && profileOpen">
+  <app-profile [user]="memberUser" (close)="toggleProfile()" (profileUpdated)="onProfileUpdated($event)" ></app-profile>
+</div>

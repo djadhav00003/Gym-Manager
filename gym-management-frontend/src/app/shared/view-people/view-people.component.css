@@ -1,0 +1,83 @@
+.view-people-container {
+  width: 100%;
+  padding: 2rem;
+  background: #f4f7fa;
+  box-sizing: border-box;
+}
+
+.trainer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.header-left h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin: 0;
+}
+
+.h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin: 0;
+}
+
+.header-left p {
+  color: #444;
+  font-size: 1rem;
+  margin: 0.4rem 0 0 0;
+}
+
+.add-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.trainer-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Side Panel */
+.add-trainer-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.add-trainer-panel.open {
+  right: 0;
+}
+
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.plan-btn {
+  background-color: #007bff;
+}

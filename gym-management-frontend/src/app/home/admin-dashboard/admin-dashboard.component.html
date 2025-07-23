@@ -1,0 +1,34 @@
+<div class="dashboard-header">
+  <h2>Admin Dashboard</h2>
+  <div class="profile-icon" (click)="toggleProfile()">
+    <img src="assets/profile-icon.webp" alt="Profile" />
+  </div>
+</div>
+
+<!-- Dashboard Content -->
+<div class="dashboard-content">
+  <div class="gym-section">
+    <div class="gym-header" *ngIf="isMember">
+      <h3> Available Gyms</h3>
+    </div>
+
+    <div class="add-gym-container">
+      <button class="add-gym-btn" (click)="toggleAddGymPanel()">+ Add Gym</button>
+      <button class="Logout-gym-btn" (click)="logOut()">Log Out</button>
+    </div>
+
+
+    <!-- Gym List Table -->
+    <app-gym-list [gyms]="gyms" [userId]="userId" [isAdmin]="isAdmin"></app-gym-list>
+  </div>
+</div>
+
+<!-- Sliding Profile Panel -->
+<div class="profile-panel" [class.open]="profileOpen" *ngIf="adminUser && profileOpen">
+  <app-profile [user]="adminUser" (close)="toggleProfile()"></app-profile>
+</div>
+
+<!-- Add Gym Side Panel -->
+<div class="add-gym-panel" [class.open]="showAddGymPanel">
+  <app-add-gym (gymAdded)="onGymAdded()" (close)="toggleAddGymPanel()"></app-add-gym>
+</div>

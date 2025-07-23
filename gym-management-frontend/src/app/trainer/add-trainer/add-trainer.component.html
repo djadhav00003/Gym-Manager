@@ -1,0 +1,21 @@
+<h3>Add New Trainer</h3>
+
+<form [formGroup]="trainerForm" (ngSubmit)="submit()">
+  <label>Trainer Name</label>
+  <input type="text" formControlName="TrainerName" />
+
+  <label>Specialization</label>
+  <input type="text" formControlName="Speciality" />
+
+  <label>Phone Number</label>
+  <input type="text" formControlName="PhoneNumber" />
+
+  <label>Experience (Years)</label>
+  <input type="number" formControlName="Experience" />
+
+
+  <div class="form-actions">
+    <button type="submit" [disabled]="!trainerForm.valid">Save</button>
+    <button type="button" (click)="closePanel()">Cancel</button>
+  </div>
+</form>

@@ -1,0 +1,14 @@
+.member-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.member-table th, .member-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.member-table th {
+  background-color: #f2f2f2;
+}

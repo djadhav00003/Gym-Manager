@@ -1,0 +1,27 @@
+<div class="payment-container">
+  <div class="payment-card">
+    <h2 class="title">🧾 Payment Summary</h2>
+
+    <div class="plan-info">
+      <p class="plan-name">{{ selectedPlan?.planName }}</p>
+      <p><strong>Duration:</strong> {{ selectedPlan?.durationInDays }} days</p>
+      <p><strong>Price:</strong> ₹{{ selectedPlan?.price }}</p>
+      <p><strong>Personal Trainer:</strong>
+        <span [ngClass]="{ 'available': selectedPlan?.isPersonalTrainerAvailable, 'not-available': !selectedPlan?.isPersonalTrainerAvailable }">
+          {{ selectedPlan?.isPersonalTrainerAvailable ? 'Yes' : 'No' }}
+        </span>
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" class="action-btn pay-btn" (click)="makePayment()">
+        💳 Pay Now
+      </button>
+      <button mat-stroked-button color="warn" class="action-btn cancel-btn" (click)="cancelPayment()">
+        ❌ Cancel
+      </button>
+    </div>
+  </div>
+</div>

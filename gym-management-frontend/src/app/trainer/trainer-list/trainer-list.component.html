@@ -1,0 +1,21 @@
+<!-- src/app/trainer/trainer-list/trainer-list.component.html -->
+<table class="trainer-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Full Name</th>
+      <th>Specialization</th>
+      <th>Phone Number</th>
+      <th>Experience (Years)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trainer of trainers; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ trainer.trainerName }}</td>
+      <td>{{ trainer.speciality }}</td>
+      <td>{{ trainer.phoneNumber }}</td>
+      <td>{{ trainer.experience }}</td>
+    </tr>
+  </tbody>
+</table>

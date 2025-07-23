@@ -1,0 +1,32 @@
+<div class="add-plan-container">
+  <div class="panel-header">
+    <h3>Add New Plan</h3>
+    <button class="close-btn" (click)="closePanel()">&#10005;</button>
+  </div>
+
+  <form [formGroup]="planForm" (ngSubmit)="submit()">
+    <label>Plan Name</label>
+    <input type="text" formControlName="PlanName" placeholder="e.g. Gold Plan" />
+
+    <label>Duration (Days)</label>
+    <input type="number" formControlName="DurationInDays" min="1" />
+
+    <label>Price (₹)</label>
+    <input type="number" formControlName="Price" min="0" />
+
+    <label class="checkbox-group">
+      <input type="checkbox" formControlName="IsPersonalTrainerAvailable" (change)="onCheckboxChange($event)" />
+      Personal Trainer Available
+    </label>
+
+    <label *ngIf="planForm.get('isPersonalTrainerAvailable')?.value">Select Trainer</label>
+  <select id="trainer" class="form-control" formControlName="TrainerId" [disabled]="!planForm.get('isPersonalTrainerAvailable')?.value">
+    <option value="" disabled selected>Select a Trainer</option>
+    <option *ngFor="let trainer of trainers" [value]="trainer.id">
+      {{ trainer.trainerName }}
+    </option>
+  </select>
+
+    <button type="submit" class="save-btn">Save Plan</button>
+  </form>
+</div>

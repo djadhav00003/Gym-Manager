@@ -1,0 +1,294 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Devlopment\\gym management\\GymManagementAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\controllers\\gymcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:controllers\\gymcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\models\\gym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:models\\gym.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:controllers\\trainercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\controllers\\plancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:controllers\\plancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\models\\plan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:models\\plan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\controllers\\membercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:controllers\\membercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\models\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:models\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:models\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:models\\trainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\migrations\\20250407180705_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:migrations\\20250407180705_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|d:\\devlopment\\gym management\\gymmanagementapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{79C4F2B4-A5CF-4FA7-AC90-0CB61201536F}|GymManagementAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MemberController.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\MemberController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MemberController.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\MemberController.cs",
+              "RelativeToolTip": "Controllers\\MemberController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAewGIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:50:41.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Member.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Member.cs",
+              "RelativeDocumentMoniker": "Models\\Member.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Member.cs",
+              "RelativeToolTip": "Models\\Member.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:38:54.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TrainerController.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\TrainerController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TrainerController.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\TrainerController.cs",
+              "RelativeToolTip": "Controllers\\TrainerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:50:01.636Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAYwGUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:48:52.184Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Payment.cs",
+              "RelativeDocumentMoniker": "Models\\Payment.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Payment.cs",
+              "RelativeToolTip": "Models\\Payment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:39:20.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA0wBoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:37:32.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GymController.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\GymController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GymController.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\GymController.cs",
+              "RelativeToolTip": "Controllers\\GymController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:49:35.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Plan.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Plan.cs",
+              "RelativeDocumentMoniker": "Models\\Plan.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Plan.cs",
+              "RelativeToolTip": "Models\\Plan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:44:17.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Gym.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Gym.cs",
+              "RelativeDocumentMoniker": "Models\\Gym.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Gym.cs",
+              "RelativeToolTip": "Models\\Gym.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBQAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:38:08.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlanController.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\PlanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PlanController.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\PlanController.cs",
+              "RelativeToolTip": "Controllers\\PlanController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAnwCgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:51:11.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AppDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\AppDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Migrations\\AppDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\AppDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAOAAAAAAAAAAAAAUwOUAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T05:57:45.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAArwBgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:41:26.901Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAADwvxMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:39:42.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:47:00.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Trainer.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Trainer.cs",
+              "RelativeDocumentMoniker": "Models\\Trainer.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Models\\Trainer.cs",
+              "RelativeToolTip": "Models\\Trainer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T07:38:35.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "20250407180705_InitialCreate.cs",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\Migrations\\20250407180705_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250407180705_InitialCreate.cs",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\Migrations\\20250407180705_InitialCreate.cs",
+              "RelativeToolTip": "Migrations\\20250407180705_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T18:07:05.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Devlopment\\gym management\\GymManagementAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\Devlopment\\gym management\\GymManagementAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-07T07:42:03.714Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

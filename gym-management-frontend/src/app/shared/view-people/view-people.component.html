@@ -1,0 +1,35 @@
+<div class="view-people-container">
+  <div class="trainer-header">
+    <div class="header-left">
+      <h2><i class="fa-solid fa-dumbbell"></i> Trainer List</h2>
+      <p>Here's a list of all trainers currently registered under this gym.</p>
+    </div>
+    <div class="button-group" *ngIf="!isMember">
+      <button class="add-btn" (click)="toggleAddPanel()">+ Add Trainer</button>
+      <button class="add-btn plan-btn" (click)="togglePlanPanel()">+ Add Plan</button>
+    </div>
+  </div>
+
+  <div class="trainer-card full-width">
+    <app-trainer-list [trainers]="trainers"></app-trainer-list>
+  </div>
+
+  <!-- Member List -->
+  <div class="trainer-header">
+<div class="header-left" style="margin-top: 2rem;">
+  <h2><i class="fa-solid fa-users"></i> Member List</h2>
+  <p>Here's a list of all members currently registered under this gym.</p>
+</div>
+</div>
+  <div class="trainer-card full-width">
+  <app-member-list [members]="members"></app-member-list>
+
+</div>
+
+  <div class="add-trainer-panel" [class.open]="showAddPanel">
+    <app-add-trainer (close)="toggleAddPanel()" (trainerAdded)="onTrainerAdded()" [gymId]="gymId"></app-add-trainer>
+  </div>
+  <div class="add-trainer-panel" [class.open]="showAddPlanPanel">
+    <app-add-plan (close)="togglePlanPanel()" [gymId]="gymId" [trainers]="this.trainers"  (planAdded)="togglePlanPanel()" ></app-add-plan>
+  </div>
+</div>

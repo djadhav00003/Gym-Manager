@@ -1,0 +1,27 @@
+<!-- profile.component.html -->
+<div class="profile-container">
+  <div class="profile-header">
+    <h3>User Profile</h3>
+    <button class="close-btn" (click)="closeProfile()">×</button>
+  </div>
+
+  <div class="profile-detail">
+    <label>Full Name:</label>
+    <input type="text" [(ngModel)]="editableUser.fullName" />
+  </div>
+
+  <div class="profile-detail">
+    <label>Email:</label>
+    <input type="email" [(ngModel)]="editableUser.email" />
+  </div>
+
+  <div class="profile-detail">
+    <label>Role:</label>
+    <span>{{ editableUser.role }}</span> <!-- 🔄 FIXED here -->
+  </div>
+
+  <div class="button-row">
+    <button class="update-btn" (click)="updateProfile()">Update</button>
+    <button class="cancel-btn" (click)="cancelEdit()">Cancel</button>
+  </div>
+</div>

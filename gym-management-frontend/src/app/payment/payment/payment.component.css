@@ -1,0 +1,77 @@
+.payment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #f2f2f2, #e0e0e0);
+  padding: 20px;
+}
+
+.payment-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  color: #2e2e2e;
+  margin-bottom: 20px;
+}
+
+.plan-info {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #444;
+}
+
+.plan-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1e88e5;
+  margin-bottom: 10px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 20px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.action-btn {
+  flex: 1;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+.pay-btn {
+  background-color: #388e3c;
+  color: white;
+}
+
+.pay-btn:hover {
+  background-color: #2e7d32;
+}
+
+.cancel-btn {
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.cancel-btn:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}

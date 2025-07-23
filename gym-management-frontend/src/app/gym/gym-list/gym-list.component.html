@@ -1,0 +1,105 @@
+
+<div *ngIf="isMember">
+  <table class="gym-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Trainer Count</th>
+        <th>Facilities</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gym of gymsWithMembership">
+        <td>{{ gym.gymName }}</td>
+        <td>{{ gym.location }}</td>
+        <td>{{ gym.trainerCount }}</td>
+        <td>{{ gym.facilities }}</td>
+        <td class="action-buttons">
+          <button class="icon-btn" (click)="openPeopleViewClick(gym.id)" title="View">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="gym-header">
+  <h3>Available Gyms</h3>
+</div>
+
+<table class="gym-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Trainer Count</th>
+      <th>Facilities</th>
+      <th>Actions</th> <!-- NEW COLUMN -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let gym of gyms; let i = index">
+      <!-- Name -->
+      <td>
+        <ng-container *ngIf="!editIndexMap[i]; else editName">
+          {{ gym.gymName }}
+        </ng-container>
+        <ng-template #editName>
+          <input class="edit-input" [(ngModel)]="gym.gymName" />
+        </ng-template>
+      </td>
+
+
+      <!-- Location -->
+      <td>
+        <ng-container *ngIf="!editIndexMap[i]; else editLocation">
+          {{ gym.location }}
+        </ng-container>
+        <ng-template #editLocation>
+          <input class="edit-input" [(ngModel)]="gym.location" />
+        </ng-template>
+      </td>
+
+      <!-- Trainer Count -->
+      <td>{{ gym.trainerCount }}</td>
+
+      <!-- Facilities -->
+      <td>
+        <div *ngIf="!editIndexMap[i]; else editFacilities">
+          {{ gym.facilities }}
+        </div>
+        <ng-template #editFacilities>
+          <input class="edit-input" [(ngModel)]="gym.facilities" />
+        </ng-template>
+      </td>
+
+      <!-- Actions -->
+      <td class="action-buttons">
+        <!-- View Button -->
+        <button class="icon-btn" (click)="handleViewClick(gym.id)" title="View">
+          <i class="fa-solid fa-eye"></i>
+        </button>
+
+        <!-- Edit Button -->
+        <button *ngIf="!editIndexMap[i] && isAdmin" class="icon-btn" (click)="editGym(i)" title="Edit">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+
+        <!-- Delete Button -->
+<button *ngIf="!editIndexMap[i] && isAdmin" class="icon-btn" (click)="deleteGym(gym.id, i)" title="Delete">
+  <i class="fa-solid fa-trash-can"></i>
+</button>
+
+        <!-- Save/Cancel Buttons -->
+        <ng-container *ngIf="editIndexMap[i]">
+
+          <button class="icon-btn" (click)="cancelEdit(i)" title="Cancel">❌</button>
+          <button class="icon-btn" (click)="saveGym(gym, i)" title="Save">✅</button>
+        </ng-container>
+      </td>
+    </tr>
+  </tbody>
+</table>
