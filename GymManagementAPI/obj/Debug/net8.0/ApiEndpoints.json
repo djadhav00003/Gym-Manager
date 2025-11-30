@@ -1,8 +1,29 @@
 [
   {
     "ContainingType": "GymManagementAPI.Controllers.GymController",
+    "Method": "UploadMultipleGymImages",
+    "RelativePath": "api/Gym/{gymId}/images",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gymId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "GymManagementAPI.Models.GymImagesDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.GymController",
     "Method": "AddGym",
-    "RelativePath": "api/Gym/add",
+    "RelativePath": "api/Gym/add/{userId}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -10,6 +31,11 @@
       {
         "Name": "gym",
         "Type": "GymManagementAPI.Models.Gym",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -27,14 +53,67 @@
   },
   {
     "ContainingType": "GymManagementAPI.Controllers.GymController",
+    "Method": "GetGymsExceptUser",
+    "RelativePath": "api/Gym/all-except-user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.GymController",
     "Method": "DeleteGymAndTrainers",
-    "RelativePath": "api/Gym/delete/{gymId}",
+    "RelativePath": "api/Gym/delete/{gymId}/{userId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "gymId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.GymController",
+    "Method": "GetGymImages",
+    "RelativePath": "api/Gym/images/{gymId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gymId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.GymController",
+    "Method": "GetGymsForOwner",
+    "RelativePath": "api/Gym/owner/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -143,9 +222,67 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "GymManagementAPI.Controllers.PaymentController",
+    "ContainingType": "GymManagementAPI.Controllers.PaymentsController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/Payments/create-order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "GymManagementAPI.Controllers.PaymentsController\u002BCreateOrderRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.PaymentsController",
+    "Method": "GetPaymentStatus",
+    "RelativePath": "api/Payments/status/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.PaymentsController",
+    "Method": "VerifyOrder",
+    "RelativePath": "api/Payments/verify-order/{orderId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "orderId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.PaymentsController",
+    "Method": "Webhook",
+    "RelativePath": "api/Payments/webhook",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.PlanController",
     "Method": "AddPlan",
-    "RelativePath": "api/Payment/add",
+    "RelativePath": "api/Plan/add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -159,9 +296,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "GymManagementAPI.Controllers.PaymentController",
+    "ContainingType": "GymManagementAPI.Controllers.PlanController",
     "Method": "GetPlansByGymId",
-    "RelativePath": "api/Payment/gym/{gymId}",
+    "RelativePath": "api/Plan/gym/{gymId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -175,9 +312,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "GymManagementAPI.Controllers.PaymentController",
+    "ContainingType": "GymManagementAPI.Controllers.PlanController",
     "Method": "MakePayment",
-    "RelativePath": "api/Payment/pay",
+    "RelativePath": "api/Plan/pay",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -216,22 +353,6 @@
     "Method": "GetTrainersByGymId",
     "RelativePath": "api/Trainer/all/{gymId}",
     "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "gymId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GymManagementAPI.Controllers.TrainerController",
-    "Method": "DeleteTrainersByGymId",
-    "RelativePath": "api/Trainer/deleteByGymId/{gymId}",
-    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -284,11 +405,31 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "loginUser",
-        "Type": "GymManagementAPI.Models.User",
+        "Name": "model",
+        "Type": "GymManagementAPI.Models.LoginRequest",
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.UserController",
+    "Method": "Logout",
+    "RelativePath": "api/User/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.UserController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/User/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -321,6 +462,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GymManagementAPI.Controllers.UserController",
+    "Method": "ValidateToken",
+    "RelativePath": "api/User/validate-token",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

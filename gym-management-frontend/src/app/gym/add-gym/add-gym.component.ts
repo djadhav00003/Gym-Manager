@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { GymService } from '../../services/gym.service';
 
 @Component({
   selector: 'app-add-gym',
@@ -11,6 +12,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   styleUrls: ['./add-gym.component.css']
 })
 export class AddGymComponent {
+   @Input() userId!: number ;
   @Output() close = new EventEmitter<void>();
   @Output() gymAdded = new EventEmitter<void>();
 
@@ -21,7 +23,7 @@ export class AddGymComponent {
     facilities: ''
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private gymService:GymService) {}
 
   addGym() {
     if (!this.gym.gymName || !this.gym.location || !this.gym.contact || !this.gym.facilities) {
@@ -29,7 +31,7 @@ export class AddGymComponent {
       return;
     }
 
-    this.http.post('https://localhost:7008/api/Gym/add', this.gym).subscribe({
+     this.gymService.addGym(this.gym,this.userId).subscribe({
       next: (res) => {
         alert('Gym added successfully!');
         this.gym = {

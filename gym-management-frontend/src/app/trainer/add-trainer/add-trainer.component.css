@@ -2,6 +2,10 @@ form {
   display: flex;
   flex-direction: column;
 }
+h3{
+margin: 0;
+  font-size: 1.5rem;
+  color: #007bff;}
 
 label {
   margin-top: 0.8rem;
@@ -29,7 +33,7 @@ button {
 }
 
 button[type="submit"] {
-  background-color: #007bff;
+  background-color: #28a745;
   color: white;
 }
 

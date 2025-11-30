@@ -9,6 +9,17 @@
   border: 1px solid #ddd;
   padding: 8px;
 }
+.no-membership-box {
+  margin-top: 12px;           /* small top gap */
+  padding: 12px;              /* comfortable spacing */
+  width: 100%;                /* aligns with table width */
+ font-size: 1.05rem;   /* prevents overflow */
+}
+
+.muted {
+  color: #666;
+  font-size: 0.95rem;
+}
 
 .gym-table th {
   background-color: #f2f2f2;

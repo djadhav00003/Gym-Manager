@@ -22,23 +22,25 @@ export class AdminDashboardComponent {
   adminUser!: User;
   gyms: any[] = [];
   showAddGymPanel: boolean = false;
-  isAdmin:boolean=true;
+  isAdmin:boolean=false;
   userId!:number;
   isMember:boolean=false;
+  email:string="";
 
   constructor(private route: ActivatedRoute,private authService: AuthService,private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      const email = params['email'];
-      this.userId = params['userId'];
-      this.isMember=params['isMember'];
-      if (email) {
-        this.authService.getUserByEmail(email).subscribe(user => {
+   const state: any = this.router.getCurrentNavigation()?.extras?.state || history.state;
+  this.email = state.email;
+  this.userId = state.userId;
+  this.isAdmin = state.isAdmin;
+  this.isMember=state.isMember
+      if (this.email) {
+        this.authService.getUserByEmail(this.email).subscribe(user => {
           this.adminUser = user;
         });
       }
-    });
+
 
     this.fetchGyms();
   }
@@ -48,7 +50,7 @@ export class AdminDashboardComponent {
   }
 
 
-  
+
   fetchGyms() {
     this.http.get<any[]>('https://localhost:7008/api/Gym/all')
       .subscribe((data) => {
@@ -61,7 +63,16 @@ export class AdminDashboardComponent {
   }
 
   logOut() {
-    this.router.navigate(['/login']);
+    this.authService.logout().subscribe({
+      next: () => {
+        console.log('Logged out');
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        console.error('Logout failed', err);
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   onGymAdded() {

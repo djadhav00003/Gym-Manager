@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Trainer } from '../models/user.model';
 import { CommonModule } from '@angular/common';
+import { PlanService } from '../services/plan.service';
 
 @Component({
   selector: 'app-add-plan',
@@ -20,7 +21,7 @@ export class AddPlanComponent {
 
   planForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private planService: PlanService) {
     this.planForm = this.fb.group({
       PlanName: ['', Validators.required],
       DurationInDays: [null, Validators.required],
@@ -44,14 +45,14 @@ export class AddPlanComponent {
   submit() {
     if (this.planForm.valid) {
       const formValue = { ...this.planForm.value, gymId: this.gymId };
-      this.http.post('https://localhost:7008/api/Payment/add', formValue).subscribe({
+        this.planService.addPlan(formValue).subscribe({
         next: () => {
           alert('Plan added successfully!');
           this.planAdded.emit();
           this.planForm.reset();
           this.planForm.get('TrainerId')?.disable(); // Ensure correct key casing if used in form
         },
-        error: (err) => {
+        error: (err:any) => {
           console.error('Failed to add plan:', err);
           alert('Failed to add plan. Please try again.');
         }

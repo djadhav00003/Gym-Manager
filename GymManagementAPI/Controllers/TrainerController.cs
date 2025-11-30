@@ -1,5 +1,6 @@
 ﻿using GymManagementAPI.Data;
 using GymManagementAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using System.Linq;
 
 namespace GymManagementAPI.Controllers
 {
+    [Authorize(Roles = "Gymowner")]
     [ApiController]
     [Route("api/[controller]")]
     public class TrainerController : ControllerBase
@@ -26,7 +28,7 @@ namespace GymManagementAPI.Controllers
             return Ok(trainer);
         }
 
-
+        [AllowAnonymous]
         [HttpGet("all/{gymId}")]
         public IActionResult GetTrainersByGymId(int gymId)
         {
@@ -35,22 +37,21 @@ namespace GymManagementAPI.Controllers
         }
 
 
-        [HttpDelete("deleteByGymId/{gymId}")]
-        public async Task<IActionResult> DeleteTrainersByGymId(int gymId)
-        {
-            var sql = "DELETE FROM Trainers WHERE GymId = @gymId";
+        //[HttpDelete("deleteByGymId/{gymId}")]
+        //public async Task<IActionResult> DeleteTrainersByGymId(int gymId)
+        //{
+        //    try
+        //    {
+        //        var trainers = _context.Trainers.Where(t => t.GymId == gymId);
+        //        _context.Trainers.RemoveRange(trainers);
+        //        await _context.SaveChangesAsync();
 
-            try
-            {
-                var parameters = new[] { new SqlParameter("@gymId", gymId) };
-                await _context.Database.ExecuteSqlRawAsync(sql, parameters);
-
-                return Ok("✅ Trainers deleted for Gym ID: " + gymId);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "❌ Error deleting trainers: " + ex.Message);
-            }
-        }
+        //        return Ok("✅ Trainers deleted for Gym ID: " + gymId);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, "❌ Error deleting trainers: " + ex.Message);
+        //    }
+        //}
     }
 }

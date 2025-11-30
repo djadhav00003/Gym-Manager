@@ -10,20 +10,27 @@
         <th>Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="(gymsWithMembership?.length ?? 0) > 0; else noMembership">
       <tr *ngFor="let gym of gymsWithMembership">
         <td>{{ gym.gymName }}</td>
         <td>{{ gym.location }}</td>
         <td>{{ gym.trainerCount }}</td>
         <td>{{ gym.facilities }}</td>
         <td class="action-buttons">
-          <button class="icon-btn" (click)="openPeopleViewClick(gym.id)" title="View">
+          <button class="icon-btn" (click)="handleViewClick(gym.id)" title="View">
             <i class="fa-solid fa-eye"></i>
           </button>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <ng-template #noMembership>
+    <div  class="no-membership-box">
+      <strong>You are not a member of any gym yet.</strong><br />
+      <span class="muted">Browse available gyms to join one.</span>
+    </div>
+  </ng-template>
 </div>
 
 <div class="gym-header">
@@ -84,12 +91,12 @@
         </button>
 
         <!-- Edit Button -->
-        <button *ngIf="!editIndexMap[i] && isAdmin" class="icon-btn" (click)="editGym(i)" title="Edit">
+        <button *ngIf="!editIndexMap[i] && isAdmin || (!isMember && !isAdmin)" class="icon-btn" (click)="editGym(i)" title="Edit">
           <i class="fa-solid fa-pen-to-square"></i>
         </button>
 
         <!-- Delete Button -->
-<button *ngIf="!editIndexMap[i] && isAdmin" class="icon-btn" (click)="deleteGym(gym.id, i)" title="Delete">
+<button *ngIf="!editIndexMap[i] && isAdmin || (!isMember && !isAdmin)" class="icon-btn" (click)="deleteGym(gym.id, i)" title="Delete">
   <i class="fa-solid fa-trash-can"></i>
 </button>
 

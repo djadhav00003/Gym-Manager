@@ -10,15 +10,44 @@
       <th>Trainer</th>
     </tr>
   </thead>
+
   <tbody>
-    <tr *ngFor="let member of members; let i = index">
-      <td>{{ i + 1 }}</td>
-      <td>{{ member.memberName }}</td>
-      <td>{{ member.age }}</td>
-      <td>{{ member.phoneNumber }}</td>
-      <td>{{ member.email }}</td>
-      <td>{{ member.planName }}</td>
-      <td>{{ member.trainerName || 'None' }}</td>
+     <!-- Case A: Admin or visitor (not a member) => show full member list -->
+    <ng-container *ngIf="isAdmin || (!isMember && !isAdmin)">
+      <tr *ngFor="let member of members; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ member.memberName }}</td>
+        <td>{{ member.age }}</td>
+        <td>{{ member.phoneNumber }}</td>
+        <td>{{ member.email }}</td>
+        <td>{{ member.planName }}</td>
+        <td>{{ member.trainerName || 'None' }}</td>
+      </tr>
+    </ng-container>
+
+    <!-- Case B: Logged-in user is a member => show their row first, then a summary row for the rest -->
+    <ng-container *ngIf="isMember">
+      <tr *ngIf="userMember" class="current-member-row">
+        <td>1</td>
+        <td>{{ userMember.memberName }}</td>
+        <td>{{ userMember.age }}</td>
+        <td>{{ userMember.phoneNumber }}</td>
+        <td>{{ userMember.email }}</td>
+        <td>{{ userMember.planName }}</td>
+        <td>{{ userMember.trainerName || 'None' }}</td>
+      </tr>
+
+    <!-- 2) Show the count of other members (no details) -->
+    <tr *ngIf="otherCount > 0">
+      <td colspan="7" style="font-weight: 600;">
+        {{ otherCount }} other member{{ otherCount === 1 ? '' : 's' }} — details are hidden
+      </td>
+    </tr>
+     </ng-container>
+
+    <!-- 3) If no members at all -->
+    <tr *ngIf="!userMember && members?.length === 0">
+      <td colspan="7">No members found.</td>
     </tr>
   </tbody>
 </table>

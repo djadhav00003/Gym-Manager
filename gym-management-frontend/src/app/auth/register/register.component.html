@@ -36,6 +36,7 @@
       [(ngModel)]="user.dateOfBirth"
       name="dateOfBirth"
       placeholder="Date of Birth"
+      (input)="onDateInput($event)"
     />
 
     <select [(ngModel)]="user.gender" name="gender" required>

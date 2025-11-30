@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AdminDashboardComponent } from './home/admin-dashboard/admin-dashboard.component';
 import { MemberDashboardComponent } from './home/member-dashboard/member-dashboard.component';
+import { GymOwnerDashboardComponent } from './home/gym-owner-dashboard/gym-owner-dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -39,7 +40,7 @@ export const routes: Routes = [
     loadComponent: () => import('./member/add-member/add-member.component').then(m => m.AddMemberComponent)
   },
   {
-    path: 'plans/:gymId/:userId/:email/:isMember',
+    path: 'plans',
     loadComponent: () => import('./plans/plan-selection/plan-selection.component').then(m => m.PlanSelectionComponent)
   },
   {
@@ -59,8 +60,15 @@ export const routes: Routes = [
     component: MemberDashboardComponent
   },
   {
-    path: 'view-people/:gymId/:userId/:isMember',
+    path: 'home/gym-owner-dashboard',
+    component: GymOwnerDashboardComponent
+  },
+  {
+    path: 'view-people',
     loadComponent: () =>
       import('./shared/view-people/view-people.component').then(m => m.ViewPeopleComponent)
+  },
+  { path: 'payment/checkout', loadComponent: () =>
+    import('./payment/payment-checkout/payment-checkout.component').then(m => m.PaymentCheckoutComponent)
   }
 ];

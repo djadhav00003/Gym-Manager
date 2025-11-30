@@ -47,4 +47,31 @@ export class RegisterComponent {
       }
     });
   }
+
+  onDateInput(event: any) {
+  let value = event.target.value;
+
+  // If user is typing numbers like 21102001
+  if (/^\d{8}$/.test(value)) {
+    const day = value.substring(0, 2);
+    const month = value.substring(2, 4);
+    const year = value.substring(4, 8);
+    value = `${year}-${month}-${day}`;
+  }
+
+  // If user types date with slash or dash
+  if (/^\d{1,2}[-/]\d{1,2}[-/]\d{4}$/.test(value)) {
+    const parts = value.split(/[-/]/);
+    const day = parts[0].padStart(2, '0');
+    const month = parts[1].padStart(2, '0');
+    const year = parts[2];
+    value = `${year}-${month}-${day}`;
+  }
+
+  // Final validation (YYYY-MM-DD)
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    this.user.dateOfBirth = value;
+  }
+}
+
 }

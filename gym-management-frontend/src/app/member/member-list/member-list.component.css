@@ -12,3 +12,8 @@
 .member-table th {
   background-color: #f2f2f2;
 }
+
+.current-member-row {
+  background: #f8fdf8; /* subtle highlight */
+  font-weight: 600;
+}

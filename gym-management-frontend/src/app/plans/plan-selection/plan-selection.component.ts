@@ -6,6 +6,9 @@ import { Plan } from '../../models/user.model';
 import { PaymentComponent } from '../../payment/payment/payment.component';
 import { MatDialog } from '@angular/material/dialog';
 import { stringify } from 'node:querystring';
+import { PaymentService } from '../../services/payment.service';
+import { MemberService } from '../../services/member.service';
+import { PlanService } from '../../services/plan.service';
 
 @Component({
   selector: 'app-plan-selection',
@@ -19,47 +22,53 @@ export class PlanSelectionComponent implements OnInit {
   gymId: number = 0;
   plans: Plan[] = [];
   selectedPlan: Plan | null = null;
-  userId!:Number;
+  userId!:number;
   email:string='';
   isMember:boolean=false;
+  isAdmin:boolean=false;
   isMemberOfGym:boolean=false;
 
-  constructor(private http: HttpClient, private dialog: MatDialog, private router: Router) {}
+  constructor(private http: HttpClient, private dialog: MatDialog, private router: Router,private planService: PlanService,
+    private memberService:MemberService
+  ) {}
 
   ngOnInit() {
     // Get gymId from route parameter (assuming route like /plans/:gymId)
-    this.route.paramMap.subscribe(params => {
-      this.gymId = Number(params.get('gymId'));
-      this.userId=Number(params.get('userId'));
-      this.email = params.get('email') || '';
-      this.isMember=Boolean(params.get('isMember'));
-      console.log('Selected Gym ID:', this.gymId);
+    const state = history.state || {};
+    if (state) {
+       this.gymId   = Number(state['gymId']);
+    this.userId  = Number(state['userId']);
+    this.email   = String(state['email']);
+    this.isMember= state['isMember'] === true || state['isMember'] === 'true';
+    this.isMember= state['isAdmin'] === true || state['isAdmin'] === 'true';
+    }
       this.fetchPlans();
       this.checkUserMembership(this.userId,this.gymId);
-    });
+
   }
 
   fetchPlans() {
     // Update URL to match your API endpoint for getting plans filtered by gymId
-    this.http.get<Plan[]>(`https://localhost:7008/api/Payment/gym/${this.gymId}`)
-      .subscribe((data) => {
-        this.plans = data;
-      }, error => {
-        console.error('Error fetching plans:', error);
-      });
+    this.planService.getPlansByGym(this.gymId).subscribe({
+    next: (data) => this.plans = data,
+    error: (err) => {
+      console.error('Error fetching plans:', err);
+      alert('Failed to load plans.');
+    }
+  });
   }
 
-  checkUserMembership(userId: Number, gymId: number): void {
-    this.http.get<boolean>(`https://localhost:7008/api/Member/isMember?userId=${userId}&gymId=${gymId}`)
-      .subscribe(
-        (isMember) => {
-          console.log('User membership status:', isMember);
-           this.isMemberOfGym=isMember;
-        },
-        (error) => {
-          console.error('Error checking membership:', error);
-        }
-      );
+
+  checkUserMembership(userId: number, gymId: number): void {
+  this.memberService.isUserMember(userId, gymId).subscribe({
+    next: (isMember) => {
+      console.log('User membership status:', isMember);
+      this.isMemberOfGym = isMember;
+    },
+    error: (err) => {
+      console.error('Error checking membership:', err);
+    }
+  });
   }
 
   goToPayment(plan: Plan) {
@@ -68,6 +77,7 @@ export class PlanSelectionComponent implements OnInit {
         userId: this.userId,
         isMember: this.isMember,
         email: this.email,
+        isAdmin:this.isAdmin
       } // passing selected plan via router state
     });
   }

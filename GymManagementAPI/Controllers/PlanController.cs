@@ -1,17 +1,19 @@
 ﻿using GymManagementAPI.Data;
 using GymManagementAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace GymManagementAPI.Controllers
 {
+    [Authorize(Roles = "Gymowner,Member")]
     [ApiController]
     [Route("api/[controller]")]
-    public class PaymentController : ControllerBase
+    public class PlanController : ControllerBase
     {
         private readonly AppDbContext _context;
-        public PaymentController(AppDbContext context)
+        public PlanController(AppDbContext context)
         {
             _context = context;
         }
@@ -25,15 +27,17 @@ namespace GymManagementAPI.Controllers
             return Ok(payment);
         }
 
+        [AllowAnonymous]
         [HttpGet("gym/{gymId}")]
         public IActionResult GetPlansByGymId(int gymId)
         {
             var plans = _context.Plans
-                .FromSqlRaw("SELECT * FROM Plans WHERE GymId = {0}", gymId)
+                .Where(p => p.GymId == gymId)
                 .ToList();
 
             return Ok(plans);
         }
+
 
 
         [HttpPost("add")]

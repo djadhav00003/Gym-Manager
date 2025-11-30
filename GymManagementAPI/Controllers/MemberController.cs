@@ -1,11 +1,13 @@
 ﻿using GymManagementAPI.Data;
 using GymManagementAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace GymManagementAPI.Controllers
 {
+    [Authorize(Roles = "Gymowner,Member")]
     [ApiController]
     [Route("api/[controller]")]
     public class MemberController : ControllerBase
@@ -24,6 +26,7 @@ namespace GymManagementAPI.Controllers
             return Ok(member);
         }
 
+        [AllowAnonymous]
         [HttpGet("gym/{gymId}")]
         public IActionResult GetMembersByGym(int gymId)
         {
@@ -54,6 +57,14 @@ namespace GymManagementAPI.Controllers
         [HttpPost]
         public IActionResult CreateMember(MemberCreateDto dto)
         {
+            // Check if member already exists for this user+plan (change uniqueness rule if needed)
+            var existingMember = _context.Members
+                .FirstOrDefaultAsync(m => m.UserId == dto.UserId && m.PlanId == dto.PlanId);
+            if (existingMember!=null)
+            {
+                return Ok("Member already exists");
+            }
+
             var user = _context.Users.FirstOrDefault(u => u.Id == dto.UserId);
             if (user == null)
                 return NotFound("User not found");
@@ -79,22 +90,16 @@ namespace GymManagementAPI.Controllers
             _context.Members.Add(member);
             _context.SaveChanges();
 
-            return Ok(member);
+            return Ok("Member has been added sucessfully");
         }
 
         [HttpGet("isMember")]
         public IActionResult IsUserMember(int userId, int gymId)
         {
-            var result = _context.Members
-                .FromSqlRaw(@"
-            SELECT * FROM Members 
-            WHERE UserId = {0} AND GymId = {1}
-        ", userId, gymId)
-                .AsNoTracking()
-                .FirstOrDefault();
+            var exists = _context.Members
+                .Any(m => m.UserId == userId && m.GymId == gymId);
 
-            // If a record exists, return true. Otherwise, false.
-            return Ok(result != null);
+            return Ok(exists);
         }
 
     }

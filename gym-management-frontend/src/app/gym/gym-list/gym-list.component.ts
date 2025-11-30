@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { GymService } from '../../services/gym.service';
 
 @Component({
   selector: 'app-gym-list',
@@ -16,12 +17,14 @@ export class GymListComponent {
   @Input() gymsWithMembership: any[] = [];
   @Input() isAdmin: boolean = false;
   @Input() isMember: boolean=false;
-  @Input() userId!: Number ;
+  @Input() userId!: number ;
   @Input() email: string='';
 
   editIndexMap: { [index: number]: boolean } = {};
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,private gymService:GymService) {
+    console.log(this.isMember,this.isAdmin)
+  }
 
   editGym(index: number) {
     this.editIndexMap[index] = true;
@@ -32,9 +35,9 @@ export class GymListComponent {
   }
 
   saveGym(gym: any, index: number) {
-    const apiUrl = 'https://localhost:7008/api/Gym/update'; // 🔁 Change port if needed
 
-    this.http.put(apiUrl, gym).subscribe({
+
+   this.gymService.updateGym(gym).subscribe({
       next: () => {
         alert('✅ Gym updated successfully!');
         delete this.editIndexMap[index];
@@ -49,13 +52,7 @@ export class GymListComponent {
   deleteGym(gymId: number, index: number) {
     if (!confirm('Are you sure you want to delete this gym?')) return;
 
-    const deleteTrainersUrl = `https://localhost:7008/api/Trainer/deleteByGymId/${gymId}`;
-    const deleteGymUrl = `https://localhost:7008/api/Gym/delete/${gymId}`;
-
-    // Step 1: Delete trainers associated with the gym
-    this.http.delete(deleteTrainersUrl, { responseType: 'text' }).subscribe({
-      next: () => {
-        this.http.delete(deleteGymUrl, { responseType: 'text' }).subscribe({
+       this.gymService.deleteGym(gymId,this.userId).subscribe({
           next: () => {
             alert('✅ Gym and its trainers deleted!');
             this.gyms.splice(index, 1);
@@ -65,25 +62,29 @@ export class GymListComponent {
             console.error(err);
           }
         });
-      },
-      error: (err) => {
-        alert('❌ Failed to delete trainers for this gym');
-        console.error(err);
       }
-    });}
+
 
 
     handleViewClick(gymId: number) {
-      if (this.isAdmin ) {
-        this.router.navigate(['/view-people', gymId,this.userId,this.isMember]);
-      } else {
-        this.router.navigate(['/plans', gymId,this.userId,this.email,this.isMember]);
-      }
+     // if (this.isAdmin ) {
+       this.router.navigate(['/view-people'], {
+  state: {
+    gymId: gymId,
+    userId: this.userId,
+    email: this.email,
+    isMember: this.isMember,
+    isAdmin:this.isAdmin
+  }
+});
+      // } else {
+      //   this.router.navigate(['/plans', gymId,this.userId,this.email,this.isMember]);
+      // }
     }
 
-    openPeopleViewClick(gymId: number) {
-      if (this.isMember) {
-        this.router.navigate(['/view-people', gymId,this.userId,this.isMember]);
-      }
-    }
+    // openPeopleViewClick(gymId: number) {
+    //   if (this.isMember) {
+    //     this.router.navigate(['/view-people', gymId,this.userId,this.isMember]);
+    //   }
+    // }
 }

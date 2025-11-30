@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { GymListComponent } from '../../gym/gym-list/gym-list.component';
+import { GymService } from '../../services/gym.service';
 
 @Component({
   selector: 'app-member-dashboard',
@@ -24,23 +25,27 @@ export class MemberDashboardComponent {
   isMember:boolean=false;
   email:string='';
 
-  constructor(private route: ActivatedRoute, private authService: AuthService, private http: HttpClient, private router: Router) {}
+  constructor(private route: ActivatedRoute, private authService: AuthService, private http: HttpClient, private router: Router,
+     private gymService:GymService
+  ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.email = params['email'];
-      this.userId=params['userId'];
-      this.isMember=params['isMember'];
+     const state: any = history.state;
+
+  this.email = state.email;
+  this.userId = state.userId;
+  this.isMember = state.isMember;
+  this.isAdmin = state.isAdmin;
       if (this.email) {
         this.authService.getUserByEmail(this.email).subscribe(user => {
           this.memberUser = user;
         });
       }
-    });
+
   if(this.isMember){
     this.fetchGymWithMembership(this.userId);
   }
-    this.fetchGyms();
+    this.GetGymsExceptUser();
   }
 
   toggleProfile() {
@@ -50,21 +55,40 @@ export class MemberDashboardComponent {
   onProfileUpdated(updatedUser: User) {
     this.memberUser = { ...updatedUser }; // Update local copy used in dashboard
   }
-  fetchGyms() {
-    this.http.get<any[]>('https://localhost:7008/api/Gym/all')
-      .subscribe((data) => {
-        this.gyms = data;
-      });
+  GetGymsExceptUser() {
+     this.gymService.GetGymsExceptUser(this.userId).subscribe({
+    next: (data) => {
+      this.gyms = data;
+    },
+    error: (err) => {
+      console.error('❌ Error fetching gyms:', err);
+      alert('Failed to load gyms.');
+    }
+  });
   }
 
   fetchGymWithMembership(userId: number) {
-    this.http.get<any[]>(`https://localhost:7008/api/Gym/withMembership/${userId}`)
-      .subscribe((data) => {
-        this.gymsWithMembership = data;
-      });
+    this.gymService.getGymsWithMembership(userId).subscribe({
+    next: (data) => {
+      this.gymsWithMembership = data;
+    },
+    error: (err) => {
+      console.error('❌ Error fetching gyms with membership:', err);
+      alert('Failed to load gym memberships.');
+    }
+  });
   }
 
   logOut() {
-    this.router.navigate(['/login']);
+     this.authService.logout().subscribe({
+      next: () => {
+        console.log('Logged out');
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        console.error('Logout failed', err);
+        this.router.navigate(['/login']);
+      }
+    });
   }
 }

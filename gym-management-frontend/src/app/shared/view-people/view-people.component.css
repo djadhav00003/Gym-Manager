@@ -81,3 +81,45 @@
 .plan-btn {
   background-color: #007bff;
 }
+
+:host ::ng-deep .p-galleria-item img {
+  width: 100%;
+  height: 400px;              /* Fixed height for main images */
+  object-fit: cover;          /* Crops and maintains uniform aspect ratio */
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* Thumbnails uniform size */
+:host ::ng-deep .p-galleria-thumbnail-item img {
+  width: 80px !important;
+  height: 70px !important;
+  object-fit: cover;
+  border-radius: 5px;
+
+}
+
+/* Active thumbnail highlight */
+:host ::ng-deep .p-galleria-thumbnail-item.p-galleria-thumbnail-item-current img {
+  border: 2px solid #007bff;
+}
+
+/* Prevent gallery height from resizing */
+:host ::ng-deep .p-galleria {
+  width: 100%;
+  height: 500px;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+:host ::ng-deep .p-galleria-content {
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;                  /* Creates the space between main image & thumbnails */
+  height: auto;               /* Flexible height */
+}

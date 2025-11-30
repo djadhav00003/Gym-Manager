@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TrainerService } from '../../services/trainer.service';
 
 @Component({
   selector: 'app-add-trainer',
@@ -18,7 +19,7 @@ export class AddTrainerComponent {
 
   trainerForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient,private trainerService:TrainerService) {
     this.trainerForm = this.fb.group({
       TrainerName: ['', Validators.required],
       Speciality: ['', Validators.required],
@@ -29,23 +30,21 @@ export class AddTrainerComponent {
   }
 
   submit() {
+    if (!this.trainerForm) return;
     if (this.trainerForm.valid) {
-      const trainerData = this.trainerForm.value;
+      const trainerData = { ...this.trainerForm.value, GymId: this.gymId };
 
-      // Append GymId manually just to be safe
-      trainerData.gymId = this.gymId;
-this.http.post(`https://localhost:7008/api/Trainer/add/${this.gymId}`, trainerData)
-  .subscribe({
-    next: () => {
-      alert('Trainer added successfully!');
-      this.trainerAdded.emit();
-      this.trainerForm.reset();
-    },
-    error: (err) => {
-      console.error('Failed to add trainer:', err);
-      alert('Failed to add trainer. Please try again.');
-    }
-  });
+      this.trainerService.addTrainer(this.gymId, trainerData).subscribe({
+        next: () => {
+          alert('Trainer added successfully!');
+          this.trainerAdded.emit();
+          this.trainerForm.reset();
+        },
+        error: (err) => {
+          console.error('Failed to add trainer:', err);
+          alert('Failed to add trainer. Please try again.');
+        }
+      });
     }
   }
 

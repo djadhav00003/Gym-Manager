@@ -1,14 +1,49 @@
 <div class="view-people-container">
-  <div class="trainer-header">
-    <div class="header-left">
+ <div class="trainer-header">
+  <div class="header-left" style="margin-top: 2rem;">
+    <h2><i class="fa-solid fa-image"></i> Gym Images</h2>
+    <p>Images uploaded for this gym will appear below.</p>
+  </div>
+
+    <div class="button-group" *ngIf=" isAdmin || (!isMember && !isAdmin)">
+      <button class="add-btn plan-btn" (click)="toggleAddPanel()">+ Add Trainer</button>
+      <button class="add-btn plan-btn" (click)="togglePlanPanel()">+ Add Plan</button>
+      <button class="add-btn plan-btn" (click)="toggleImagePanel()">+ Add Images</button>
+    </div>
+    <div class="button-group" *ngIf="isMember">
+       <button class="add-btn plan-btn" (click)="selectPlans()">Select Plan</button>
+    </div>
+</div>
+
+
+  <div class="trainer-card full-width">
+  <p-galleria
+  [value]="images"
+  [containerStyle]="{ 'max-width': '700px', 'margin': '0 auto' }"
+  [numVisible]="5"
+  [circular]="true"
+  [showThumbnails]="true"
+  [autoPlay]="true"
+  [showItemNavigators]="true"
+  [showItemNavigatorsOnHover]="true"
+>
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item.itemImageSrc" alt="Gym Image" />
+  </ng-template>
+
+  <ng-template pTemplate="thumbnail" let-item>
+    <img [src]="item.thumbnailImageSrc" alt="Gym Thumbnail" />
+  </ng-template>
+</p-galleria>
+</div>
+
+
+<div class="trainer-header">
+    <div class="header-left" style="margin-top: 2rem;">
       <h2><i class="fa-solid fa-dumbbell"></i> Trainer List</h2>
       <p>Here's a list of all trainers currently registered under this gym.</p>
     </div>
-    <div class="button-group" *ngIf="!isMember">
-      <button class="add-btn" (click)="toggleAddPanel()">+ Add Trainer</button>
-      <button class="add-btn plan-btn" (click)="togglePlanPanel()">+ Add Plan</button>
-    </div>
-  </div>
+     </div>
 
   <div class="trainer-card full-width">
     <app-trainer-list [trainers]="trainers"></app-trainer-list>
@@ -22,7 +57,7 @@
 </div>
 </div>
   <div class="trainer-card full-width">
-  <app-member-list [members]="members"></app-member-list>
+  <app-member-list [members]="members" [currentUserId]="userId" [isAdmin]="isAdmin" [isMember]="isMember"></app-member-list>
 
 </div>
 
@@ -32,4 +67,11 @@
   <div class="add-trainer-panel" [class.open]="showAddPlanPanel">
     <app-add-plan (close)="togglePlanPanel()" [gymId]="gymId" [trainers]="this.trainers"  (planAdded)="togglePlanPanel()" ></app-add-plan>
   </div>
+
+  <div class="add-trainer-panel" [class.open]="showAddImagePanel">
+    <app-add-images
+      (close)="toggleImagePanel()"
+      (imagesUploaded)="onImagesUploaded($event)"
+      [gymId]="gymId">
+    </app-add-images>
 </div>

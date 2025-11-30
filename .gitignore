@@ -1,0 +1,36 @@
+# Dotnet / Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / IntelliJ
+.idea/
+
+# Node / Angular
+node_modules/
+dist/
+coverage/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Local certs / dev keys
+*.pem
+*.key
+*.crt
+
+# Firebase / service account (prevent re-adding)
+gym-management-frontend/src/assets/app-config.json
+GymManagementAPI/gym-management-3f3c4-firebase-adminsdk-*.json
+GymManagementAPI/bin/**/gym-management-3f3c4-firebase-adminsdk-*.json
+
+# Misc
+.env
+.env.local
+.env.*.local
+/local-*
+.DS_Store
