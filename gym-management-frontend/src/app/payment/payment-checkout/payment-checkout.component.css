@@ -1,0 +1,22 @@
+/* src/app/payment/payment-checkout/payment-checkout.component.css */
+.checkout-page {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:2rem;
+}
+.card {
+  max-width:560px;
+  width:100%;
+  border-radius:8px;
+  padding:1.6rem;
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  background:#fff;
+  text-align:center;
+}
+.error { color: #b00020; margin:1rem 0; }
+.actions { margin-top:1.2rem; display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
+.btn { padding:.6rem 1rem; border-radius:6px; border:none; cursor:pointer; background:#1976d2; color:#fff; }
+.btn.cancel { background:#666; }
+.btn.retry { background:#ff9800; }
+.debug { margin-top:1rem; color:#666; font-size:.85rem; }

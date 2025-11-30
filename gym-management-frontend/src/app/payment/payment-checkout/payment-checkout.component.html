@@ -1,0 +1,23 @@
+<div class="checkout-page">
+  <div class="card">
+    <h3>Opening payment window…</h3>
+
+    <p *ngIf="loading">Please wait — connecting to payment provider...</p>
+
+    <p *ngIf="!loading && sessionId">Session ID found: <code>{{ sessionId }}</code></p>
+    <p *ngIf="!loading && checkoutLink">Hosted checkout link will be used.</p>
+
+    <p *ngIf="error" class="error">{{ error }}</p>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" (click)="retryOpenSdk()" *ngIf="!loading && error">Retry Checkout</button>
+      <button mat-raised-button color="primary" (click)="retryOpenSdk()" *ngIf="!loading && !error">Re-open Checkout</button>
+      <button mat-stroked-button color="warn" (click)="goBack()">Back to app</button>
+    </div>
+
+    <div class="debug" *ngIf="!error">
+      <small *ngIf="orderId">orderId: {{ orderId }}</small><br />
+      <small *ngIf="paymentId">paymentId: {{ paymentId }}</small>
+    </div>
+  </div>
+</div>

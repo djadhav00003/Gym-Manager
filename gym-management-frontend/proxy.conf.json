@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "https://gympro-api.azurewebsites.net",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "cookieDomainRewrite": ""
+  }
+}

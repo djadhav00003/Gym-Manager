@@ -1,0 +1,23 @@
+<div class="form-container">
+  <form >
+    <h3>Upload Gym Images</h3>
+
+    <label for="imageUpload">Select Images</label>
+    <input #fileInput type="file" id="imageUpload" (change)="onFileSelected($event)" multiple accept="image/*">
+
+    <div class="preview-container" *ngIf="imagePreviews.length > 0">
+      <h4>Preview:</h4>
+      <div class="image-grid">
+        <div *ngFor="let img of imagePreviews" class="preview-box">
+          <img [src]="img" alt="Preview">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="submit" [disabled]="selectedFiles.length === 0" (click)="onSubmit()">Upload</button>
+      <button type="button" class="cancel" (click)="onCancel()">Cancel</button>
+
+    </div>
+  </form>
+</div>

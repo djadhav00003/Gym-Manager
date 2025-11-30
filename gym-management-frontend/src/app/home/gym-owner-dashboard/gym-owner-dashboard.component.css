@@ -1,0 +1,97 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #0077ff;
+  color: white;
+  position: relative;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dashboard-content {
+  padding: 2rem;
+}
+
+.gym-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.add-gym-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem; /* Adds space between buttons */
+}
+
+.add-gym-btn {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Logout-gym-btn {
+  background-color: #ff3131;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Logout-gym-btn:hover {
+  background-color: #e60000;
+}
+
+.add-gym-btn:hover {
+  background-color: #218838;
+}
+
+/* Profile Panel */
+.profile-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.profile-panel.open {
+  right: 0;
+}
+
+/* Add Gym Panel */
+.add-gym-panel {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease-in-out;
+  z-index: 999;
+  padding: 1rem;
+}
+
+.add-gym-panel.open {
+  right: 0;
+}
